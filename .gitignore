@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# devis leads : données personnelles (RGPD), ne jamais committer
+/data/*.json

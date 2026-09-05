@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TOOM Website
 
-## Getting Started
+Site public de TOOM (restaurant + traiteur, cuisine libanaise à Nancy).
+Next.js (App Router) + TypeScript + Tailwind CSS v4. Contenu géré en Git
+(pas de CMS) — voir `lib/content.ts` et `lib/event-types.ts`.
 
-First, run the development server:
+## Démarrer
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Site disponible sur http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/` — pages (Restaurant, Traiteur, devis, Réalisations, À propos, mentions légales)
+- `components/` — Header, Footer, formulaire devis
+- `lib/` — contenu éditorial et types d'événements
+- `app/api/devis/route.ts` — réception du formulaire de devis (stocké en
+  local dans `data/devis-leads.json`, hors Git — **TODO(intégration)** :
+  brancher sur le CRM / Hermes Agent avant mise en production, car le
+  système de fichiers de Vercel est éphémère.
 
-## Learn More
+## Contenu à compléter
 
-To learn more about Next.js, take a look at the following resources:
+Chercher `TODO(contenu réel)` dans le code pour la liste des textes, photos
+et coordonnées encore à renseigner.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Déploiement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Déployé sur Vercel, connecté au dépôt GitHub du propriétaire (pas de compte
+partagé). Domaine à brancher une fois choisi/confirmé (voir `app/sitemap.ts`
+et `app/robots.ts`).
