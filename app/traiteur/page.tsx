@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 const prestations = [
   {
     title: "Mariages",
-    // TODO(contenu réel) : description réelle de la prestation mariage
-    description: "Buffets et cocktails pensés pour votre jour J.",
+    description:
+      "Buffet libanais généreux ou cocktail dînatoire, pensé avec vous pour votre jour J. À partir de 25 à 33 € TTC par personne.",
   },
   {
     title: "Entreprises & séminaires",
