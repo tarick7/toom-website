@@ -7,9 +7,14 @@ export const siteConfig = {
   name: "TOOM",
   tagline: "Cuisine libanaise à Nancy",
   city: "Nancy",
-  phone: "TODO(contenu réel) : numéro de téléphone",
+  phone: "07 56 80 11 39",
   email: "TODO(contenu réel) : email de contact",
-  address: "TODO(contenu réel) : adresse du restaurant / de la cuisine",
+  address: "61 avenue du XXe Corps, Nancy",
+  openingHours: [
+    { days: "Mardi au vendredi", hours: "12h - 14h | 19h - 21h" },
+    { days: "Samedi", hours: "12h30 - 14h30 | 19h30 - 21h30" },
+    { days: "Dimanche & lundi", hours: "Fermé" },
+  ],
   deliveryLinks: {
     uberEats: "https://www.ubereats.com/",
     deliveroo: "https://deliveroo.fr/",
