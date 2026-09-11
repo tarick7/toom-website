@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/content";
+import { menu } from "@/lib/menu";
 
 export const metadata: Metadata = {
   title: "Restaurant",
@@ -14,7 +15,6 @@ export default function RestaurantPage() {
       </p>
       <h1 className="mt-3 font-serif text-4xl">Restaurant</h1>
       <p className="mt-4 max-w-xl text-muted">
-        {/* TODO(contenu réel) : texte de présentation du restaurant */}
         Une cuisine libanaise généreuse, sur place ou en livraison.
       </p>
 
@@ -32,8 +32,13 @@ export default function RestaurantPage() {
             </div>
             <div>
               <dt className="font-medium text-foreground">Horaires</dt>
-              {/* TODO(contenu réel) : horaires d'ouverture */}
-              <dd>À préciser</dd>
+              <dd>
+                {siteConfig.openingHours.map((h) => (
+                  <span key={h.days} className="block">
+                    {h.days} : {h.hours}
+                  </span>
+                ))}
+              </dd>
             </div>
           </dl>
         </div>
@@ -50,8 +55,40 @@ export default function RestaurantPage() {
 
       <div className="mt-16">
         <h2 className="font-serif text-2xl">La carte</h2>
-        {/* TODO(contenu réel) : la carte complète, plat par plat */}
-        <p className="mt-4 text-muted">La carte détaillée arrive bientôt ici.</p>
+        <p className="mt-2 text-sm text-muted">
+          La sélection tourne selon les arrivages — tous les plats ne sont
+          pas disponibles en même temps.
+        </p>
+
+        <div className="mt-8 grid gap-10 sm:grid-cols-2">
+          {menu.map((category) => (
+            <div key={category.id}>
+              <h3 className="font-serif text-lg text-accent-dark">
+                {category.label}
+              </h3>
+              <ul className="mt-3 divide-y divide-border">
+                {category.items.map((item) => (
+                  <li
+                    key={item.name}
+                    className="flex items-baseline justify-between gap-4 py-2 text-sm"
+                  >
+                    <span>
+                      {item.name}
+                      {item.tags?.includes("nouveau") && (
+                        <span className="ml-2 text-xs text-accent-dark">
+                          Nouveau
+                        </span>
+                      )}
+                    </span>
+                    <span className="whitespace-nowrap font-medium text-foreground">
+                      {item.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
